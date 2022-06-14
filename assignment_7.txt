@@ -1,0 +1,44 @@
+-- 
+-- Roll No: <47>
+-- Name:<shahana m m>
+-- Program: <ASSIGNMENT-7>
+-- 
+
+
+--
+-- Table structure for table <order>
+--
+
+db.createCollection("order")
+
+
+
+--
+-- Dumping data for table <table>
+--
+
+-- --------insert/update statement commands----------- 
+-- 
+db.order.insert({order_no:"01",year:2020,paid:"Y",cost:{price:30,currency:"INR"},items:{pno:"P1",colors:["blue","black"],quantity:15},delivery_day:5})
+
+db.order.insert({order_no:"02",year:2020,paid:"Y",cost:{price:13,currency:"DLR"},items:[{pno:"P2",colors:"white",quantity:4},{pno:"P3",color:["white","black"],quantity:1}],delivery_day:4})
+
+db.order.insert({order_no:"03",year:2018,paid:"N",cost:{price:33,currency:"EUR"},items:{pno:"P3",colors:["blue","black"],quantity:4},delivery_day:4})
+
+db.order.insert({order_no:"04",year:2017,paid:"Y",cost:{price:17,currency:"INR"},items:[{pno:"P2",colors:["pink","black"],quantity:14},{pno:"P4",color:"white",quantity:1}],delivery_day:2})
+
+db.order.insert({order_no:"05",year:2020,paid:"Y",cost:{price:19,currency:"INR"},items:{pno:"P1",quantity:15},delivery_day:3})
+
+
+-- SQl Query Statements
+-- 
+db.order.find({paid:"Y"}).pretty()
+db.order.find({paid:'Y',year:{ $lt:2019}})
+db.order.find({paid:'N',year:{ $lt:2019}})
+db.order.find({"cost.currency":{ $eq:"INR"}})
+db.order.find({"cost.price":{ $lt:18}})
+db.order.find({"items.pno":{ $eq:"P2"}})
+db.order.find({"items.quantity":{ $lt:13}})
+
+
+
